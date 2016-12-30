@@ -61,7 +61,8 @@ val baseSettings = Seq(
   crossVersion := CrossVersion.binary,
   autoAPIMappings := true,
   resolvers ++= Seq(
-    "Typesafe repository releases" at "http://repo.typesafe.com/typesafe/releases/"
+    "Typesafe repository releases" at "http://repo.typesafe.com/typesafe/releases/",
+    "Sonatype snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
   ),
   libraryDependencies ++= Seq(Libs.scalatest, Libs.jmockit),
   scalacOptions in (Compile, doc) ++= Seq("-unchecked", "-deprecation"),
@@ -319,7 +320,10 @@ lazy val playEdge = project.in(file("play"))
   .settings(
     name := "jwt-play",
     target <<= target(_ / "edge"),
-    libraryDependencies ++= Seq(Libs.play, Libs.playTest, Libs.scalatestPlus),
+    libraryDependencies ++= Seq(Libs.play
+      , Libs.playTest
+//      , Libs.scalatestPlus
+    ),
     testGrouping in Test <<= definedTests in Test map groupPlayTest
   )
   .aggregate(playJsonEdge)

@@ -2,7 +2,9 @@ import sbt._
 
 object Dependencies {
   object V {
-    val play = "2.5.0"
+    val play = "2.6.0"
+    val playJson = "2.6.0-SNAPSHOT"
+    val playSnapShot = "2.6.0-2016-12-26-6abe1e7-SNAPSHOT"
     val json4s = "3.5.0"
     val circe = "0.6.0"
     val scalatest = "3.0.0"
@@ -13,10 +15,10 @@ object Dependencies {
   }
 
   object Libs {
-    val play             = "com.typesafe.play" %% "play"      % V.play % "provided"
-    val playJson         = "com.typesafe.play" %% "play-json" % V.play % "provided"
-    val playTest         = "com.typesafe.play" %% "play-test" % V.play % "test"
-    val playTestProvided = "com.typesafe.play" %% "play-test" % V.play % "provided"
+    val play             = "com.typesafe.play" %% "play"      % V.playSnapShot % "provided"
+    val playJson         = "com.typesafe.play" %% "play-json" % V.playJson % "provided"
+    val playTest         = "com.typesafe.play" %% "play-test" % V.playSnapShot % "test"
+    val playTestProvided = "com.typesafe.play" %% "play-test" % V.playSnapShot % "provided"
 
     val json4sCore    = "org.json4s" %% "json4s-core"    % V.json4s % "provided"
     val json4sNative  = "org.json4s" %% "json4s-native"  % V.json4s % "provided"
@@ -30,7 +32,7 @@ object Dependencies {
     val bouncyCastle = "org.bouncycastle" % "bcpkix-jdk15on" % V.bouncyCastle
 
     val scalatest = "org.scalatest" %% "scalatest" % V.scalatest % "test"
-    val scalatestPlus = "org.scalatestplus.play" %% "scalatestplus-play" % V.scalatestPlus % "test"
+//    val scalatestPlus = "org.scalatestplus.play" % "scalatestplus-play" % V.scalatestPlus % "test"
     val jmockit = "org.jmockit" % "jmockit" % V.jmockit % "test"
   }
 }
